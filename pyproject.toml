@@ -1,0 +1,27 @@
+[project]
+name = "siavos-scribe"
+version = "0.1.0"
+description = "Telegram bot that asks D&D players open questions from the siavos vault TODO and records their answers"
+readme = "README.md"
+authors = [
+    { name = "Martynov Pavel", email = "covariancemomentum@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "python-telegram-bot[job-queue]>=22.8",
+]
+
+[project.scripts]
+siavos-scribe = "siavos_scribe:main"
+
+[build-system]
+requires = ["uv_build>=0.8.11,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

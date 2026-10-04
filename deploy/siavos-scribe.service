@@ -1,0 +1,27 @@
+# systemd unit for running the bot on a Linux VPS. See README → "Deploy on a VPS".
+# Assumes user `scribe` with the repo cloned to /home/scribe/siavos-scribe; adjust both if different.
+
+[Unit]
+Description=siavos-scribe Telegram bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=scribe
+WorkingDirectory=/home/scribe/siavos-scribe
+# Created by `uv sync --frozen --no-dev`; reads config.toml and .env from WorkingDirectory.
+ExecStart=/home/scribe/siavos-scribe/.venv/bin/siavos-scribe
+Restart=on-failure
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+
+# Hardening: the bot only writes to data/.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/scribe/siavos-scribe/data
+
+[Install]
+WantedBy=multi-user.target

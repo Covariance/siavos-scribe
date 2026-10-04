@@ -1,0 +1,32 @@
+# Copy to config.toml and edit.
+
+# Telegram numeric ID of the admin. Required. The admin can query everyone's questions and
+# submissions (/users, /asked, /answers, /file, /export). Admin gets no questions unless
+# also listed in `whitelist`.
+admin_id = 123456789
+
+# Telegram numeric user IDs allowed to use the bot (ask @userinfobot for yours).
+whitelist = [123456789]
+
+# Path to the Obsidian vault's TODO file (read-only for the bot).
+# On a Linux VPS, e.g. "/home/scribe/siavos/wiki/TODO.md".
+todo_path = "D:/siavos/wiki/TODO.md"
+
+# Where the SQLite DB and downloaded voice files live.
+data_dir = "data"
+
+# Interval applied to a user right after /start, before they choose one.
+default_interval = "1d"
+
+# Shortest interval a user may choose. Use "1m" while testing.
+min_interval = "1h"
+
+# Headings (regex, matched against "##" section titles) whose items are never asked.
+# "отложено" = headings the DM marked "deferred at Pasha's request".
+skip_sections = ["Открыто в игре", "Сделано", "отложено"]
+
+# Vault `wiki/` folder that /proofread picks pages from (read-only). Defaults to the folder of todo_path.
+# wiki_dir = "D:/siavos/wiki"
+
+# Subfolders of wiki_dir offered for proof-reading. Session pages are deliberately not listed.
+# proofread_folders = ["characters", "factions", "items", "locations", "lore", "threads"]

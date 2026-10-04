@@ -1,0 +1,3 @@
+* text=auto
+# Read on Linux by systemd; must stay LF even in Windows checkouts.
+deploy/* text eol=lf
